@@ -13,21 +13,16 @@ ln -s "$(pwd)/<skill-name>" ~/.claude/skills/<skill-name>
 
 ## 全域指令
 
-[`CLAUDE.global.md`](CLAUDE.global.md) 也放在這個 repo，透過 symlink 讓每台裝置共用。
+[`CLAUDE.global.md`](CLAUDE.global.md) 放在這個 repo，是跨裝置共用的基線規則。
 
-`~/.claude/CLAUDE.md` 已經有內容時 `ln -s` 會失敗（`File exists`），不會蓋掉，先比對再決定怎麼併：
+`~/.claude/CLAUDE.md` 維持實體檔，不建 symlink：同一台裝置常需要疊加只在這台適用的規則（某個工具的用字細節、本機路徑），symlink 會沒有空間放這些客製。
 
 ```sh
 diff ~/.claude/CLAUDE.md CLAUDE.global.md
 ```
 
-- 沒差異 → 刪掉本機那份，建 symlink。
-- 差異每台都適用 → 先併進 `CLAUDE.global.md` 並 push，再刪本機那份、建 symlink。
-- 差異只有這台適用（本機路徑、某個專案的規則）→ 不要進這個 repo，移到該專案的 `CLAUDE.md`。全域檔只放跨裝置都成立的規則。
-
-```sh
-rm ~/.claude/CLAUDE.md && ln -s "$(pwd)/CLAUDE.global.md" ~/.claude/CLAUDE.md
-```
+- repo 有、本機沒有的規則 → 併入本機 `CLAUDE.md`。
+- 本機有、repo 沒有的規則 → 只有這台適用就留在本機，不動 repo；所有裝置都該套用才併進 `CLAUDE.global.md` 並 push。
 
 ## 換裝置
 
