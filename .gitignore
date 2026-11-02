@@ -1,3 +1,6 @@
 
 # vim/editor swap files
 *.sw[a-p]
+
+# Claude Code 本機設定
+.claude/

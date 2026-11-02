@@ -22,7 +22,18 @@ diff ~/.claude/CLAUDE.md CLAUDE.global.md
 ```
 
 - repo 有、本機沒有的規則 → 併入本機 `CLAUDE.md`。
-- 本機有、repo 沒有的規則 → 只有這台適用就留在本機，不動 repo；所有裝置都該套用才併進 `CLAUDE.global.md` 並 push。
+- 本機有、repo 沒有的規則 → 只有這台適用就留在本機，不動 repo。所有裝置都該套用才併進 `CLAUDE.global.md` 並 push。
+
+## Hooks
+
+`hooks/` 底下的腳本支援全域指令的規則，symlink 到 `~/.claude/hooks/`，再到 `~/.claude/settings.json` 註冊：
+
+| 腳本 | 事件 | 用途 |
+|---|---|---|
+| `zh-tw-lint.py` | PostToolUse，matcher `Write\|Edit\|MultiEdit` | 回報寫入檔案的中文違反用字規則的位置 |
+| `prefer-rg.py` | PreToolUse，matcher `Bash` | 拒絕以 grep 當命令的指令，要求改用 rg |
+
+註冊的 command 寫 `/usr/bin/python3 ~/.claude/hooks/<腳本名>`，timeout 10。
 
 ## 換裝置
 
@@ -30,6 +41,8 @@ diff ~/.claude/CLAUDE.md CLAUDE.global.md
 git clone git@github.com:wk00100/skills.git ~/Github/skills && cd ~/Github/skills
 ln -s "$(pwd)/operationalize" ~/.claude/skills/operationalize
 ln -s "$(pwd)/trace-dataflow" ~/.claude/skills/trace-dataflow
+ln -s "$(pwd)/hooks/zh-tw-lint.py" ~/.claude/hooks/zh-tw-lint.py
+ln -s "$(pwd)/hooks/prefer-rg.py" ~/.claude/hooks/prefer-rg.py
 ```
 
-全域指令照上一節處理。已經有 `contextualize` 的舊裝置要 `rm ~/.claude/skills/contextualize`（已併進 operationalize）。
+全域指令與 hooks 註冊照上方各節處理。已經有 `contextualize` 的舊裝置要 `rm ~/.claude/skills/contextualize`（已併進 operationalize）。
