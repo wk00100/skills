@@ -8,14 +8,14 @@ ln -s "$(pwd)/<skill-name>" ~/.claude/skills/<skill-name>
 
 | Skill | 用途 |
 |---|---|
-| [operationalize](operationalize/SKILL.md) | 形容詞改寫成可觀察的行為規格＋用字依語境重選；保留背景與 Why |
+| [operationalize](operationalize/SKILL.md) | 形容詞改寫成可觀察的行為規格＋用字依語境重選，保留背景與 Why |
 | [trace-dataflow](trace-dataflow/SKILL.md) | 以問答引導使用者追蹤前端資料流 |
 
 ## 全域指令
 
-[`CLAUDE.global.md`](CLAUDE.global.md) 放在這個 repo，是跨裝置共用的基線規則。
+[`CLAUDE.global.md`](CLAUDE.global.md) 放在本 repo，是跨裝置共用的基線規則。
 
-`~/.claude/CLAUDE.md` 維持實體檔，不建 symlink：同一台裝置常需要疊加只在這台適用的規則（某個工具的用字細節、本機路徑），symlink 會沒有空間放這些客製。
+`~/.claude/CLAUDE.md` 維持實體檔，不建 symlink：同一台裝置常需要疊加只在這台適用的規則（某個工具的用字細節、本機路徑），symlink 會讓本機客製的規則沒有地方放。
 
 ```sh
 diff ~/.claude/CLAUDE.md CLAUDE.global.md

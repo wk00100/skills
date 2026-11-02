@@ -77,7 +77,7 @@ session 快結束時（使用者說「今天先到這」、問題解決、或連
 存檔規則：
 
 - 路徑 `資料流/{proj}/{feature}-{sub}-{action}.md`，`{proj}` 資料夾不存在就問使用者專案代號。
-- 檔名的 action 用動詞開頭（`顯示額外權限` ✓、`額外權限顯示` ✗），action 必須是最後一段。段數不限。
+- 檔名的 action 用動詞開頭（寫 `顯示額外權限`，不寫 `額外權限顯示`），action 必須是最後一段。段數不限。
 - 分不清 feature 與 action 時：使用者能直接觸發的屬於 action，只能看到的屬於 feature。
 - 內容照上方地圖格式，**六行上限**，第一行加 `# {feature}-{action} · 資料流`。超過六行就刪細節，不加行。
 - 存下的 md 是貼紙檔，給 Obsidian canvas 以 file node 引用。不產生 `.canvas` 檔，不改既有 canvas。
