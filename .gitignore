@@ -4,3 +4,6 @@
 
 # Claude Code 本機設定
 .claude/
+
+# 各裝置自行維護的 skill 客製檔
+*/LOCAL.md

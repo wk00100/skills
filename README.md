@@ -10,6 +10,8 @@
 
 | Skill | 用途 |
 |---|---|
+| [doc-writing](doc-writing/SKILL.md) | 文件的寫法、結構與 review 項目，含交接文件 |
+| [git-conventions](git-conventions/SKILL.md) | 分支命名、commit 訊息、MR 說明格式。同資料夾的 `LOCAL.md` 放本機客製，不進 repo |
 | [operationalize](operationalize/SKILL.md) | 形容詞改寫成可觀察的行為規格，用字依語境重選，保留背景與 Why |
 | [trace-dataflow](trace-dataflow/SKILL.md) | 以問答引導使用者追蹤前端資料流 |
 
@@ -87,6 +89,8 @@ ln -s "$(pwd)/<skill-name>" ~/.claude/skills/<skill-name>
 2. 安裝 skills：
 
    ```sh
+   ln -s "$(pwd)/doc-writing" ~/.claude/skills/doc-writing
+   ln -s "$(pwd)/git-conventions" ~/.claude/skills/git-conventions
    ln -s "$(pwd)/operationalize" ~/.claude/skills/operationalize
    ln -s "$(pwd)/trace-dataflow" ~/.claude/skills/trace-dataflow
    ```

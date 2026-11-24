@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """PostToolUse hook：檢查 Write／Edit／MultiEdit 寫入的中文是否違反 ~/.claude/CLAUDE.md 用字規則。
 
-只檢查 regex 抓得到的違規，同概念換詞、業務名稱回譯等需要理解語意的規則仍靠人工自檢。
+只檢查 regex 可以比對的違規，同概念換詞、業務名稱直接翻譯等需要理解語意的規則仍靠人工自檢。
 命中時以 additionalContext 回報給模型，不阻擋寫入。部分規則會誤判，由模型確認是否為合理用法。
 """
 import json
